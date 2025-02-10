@@ -10,13 +10,13 @@ class ListingSerializer(serializers.ModelSerializer):
 
 class BookingSerializer(serializers.ModelSerializer):
     """Serialize Booking model"""
-    listing = ListingSerializer(read_only=True)  # For response representation
-    listing_id = serializers.PrimaryKeyRelatedField(
-        queryset=Listing.objects.all(),
-        source='listing',
-        write_only=True,
-        required=True
-    )
+    # listing = ListingSerializer(read_only=True)  
+    # listing_id = serializers.PrimaryKeyRelatedField(
+    #     queryset=Listing.objects.all(),
+    #     source='listing',
+    #     write_only=True,
+    #     required=True
+    # )
 
     class Meta:
         model = Booking

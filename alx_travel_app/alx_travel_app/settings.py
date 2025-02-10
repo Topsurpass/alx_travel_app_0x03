@@ -24,6 +24,10 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # Use environment variables
 DEBUG = env.bool('DEBUG', default=True)
 SECRET_KEY = env('SECRET_KEY', default='unsafe-default-secret-key')
+CHAPA_SECRET_KEY = env("CHAPA_SECRET_KEY")
+CHAPA_PUBLIC_KEY = env("CHAPA_PUBLIC_KEY")
+CHAPA_INITIATE_URL = env("CHAPA_INITIATE_URL")
+CHAPA_VERIFY_URL = env("CHAPA_VERIFY_URL")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -44,11 +48,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_celery_results',
     'rest_framework',
     'corsheaders',
     'drf_yasg',
     'listings',
+    'django_celery_results',
 ]
 
 #Middleware
@@ -82,7 +86,6 @@ TEMPLATES = [
         },
     },
 ]
-
 #Webserver Gateway Interface
 WSGI_APPLICATION = 'alx_travel_app.wsgi.application'
 
